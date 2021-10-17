@@ -1,6 +1,6 @@
 package com.bridglab.user;
 
-import java.util.ArrayList;
+
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,6 +16,19 @@ public class UserRegistration {
 	        Matcher match = patt.matcher(firstname);
 	        return match.matches();
 	    }
+	 
+	  public static boolean isLastName(String lastname) {
+	        String regex = "^[A-Z]{1}[a-z]{2,}";
+	        Pattern patt2 = Pattern.compile(regex);
+	        if (lastname == null) {
+	            return false;
+	        }
+	        Matcher match2 = patt2.matcher(lastname);
+	        return match2.matches();
+	    }
+
+	 
+	 
 	 public static void main(String[] args) {
 	        Scanner input = new Scanner(System.in);
 	        System.out.println("Enter firstname:");
@@ -26,5 +39,13 @@ public class UserRegistration {
       } else {
           System.out.println("Firstname is Incorrect");
       }
-}
+	  
+	  System.out.println("Enter lastname:");
+      String lastname = input.nextLine();
+      if (isLastName(lastname) == true) {
+          System.out.println("Lastname is Correct");
+      } else {
+          System.out.println("Lastname is Incorrect");
+      }
+	 }
 }

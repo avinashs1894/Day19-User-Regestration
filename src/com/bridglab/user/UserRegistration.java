@@ -41,7 +41,16 @@ public class UserRegistration {
 	        Matcher match = patt.matcher(mobile);
 	        return match.matches();
 	    }
-	 
+	    public static boolean isPasswordValid(String password) {
+	        String regex = "^[a-zA-Z0-9]+[@#$%&*_+=!?]?${8,}";
+	        Pattern patt = Pattern.compile(regex);
+	        if (password == null) {
+	            return false;
+	        }
+	        Matcher match = patt.matcher(password);
+	        return match.matches();
+	    }
+
 	 
 	 public static void main(String[] args) {
 	        Scanner input = new Scanner(System.in);
@@ -72,6 +81,14 @@ public class UserRegistration {
       } else{
           System.out.println("Phone Number is Incorrect");
       }
-
+      System.out.println("Enter password");
+      String password = input.nextLine();
+      if (isPasswordValid(password) == true) {
+          System.out.println("Password is Valid");
+      } else {
+          System.out.println("Password is Invalid");
+      }
+      
+      
 	 }
 }

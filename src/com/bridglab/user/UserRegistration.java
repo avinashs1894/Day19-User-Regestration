@@ -32,8 +32,15 @@ public class UserRegistration {
 	        } else {
 	            return "invalid";
 	        }
+	    } public static boolean isMobileFormatValid(String mobile) {
+	        String regex = "^((\\+)?(\\d{2}[\\s]))?(\\d{10}){1}?$";
+	        Pattern patt = Pattern.compile(regex);
+	        if (mobile == null) {
+	            return false;
+	        }
+	        Matcher match = patt.matcher(mobile);
+	        return match.matches();
 	    }
-
 	 
 	 
 	 public static void main(String[] args) {
@@ -57,6 +64,14 @@ public class UserRegistration {
       String email = "avinash.sankajji94gmail.com";
       System.out.println("Email: " + validateEmail(email));
       
+      System.out.println("Enter mobile number");
+      String phno = input.nextLine();
+      
+      if (isMobileFormatValid(phno) == true){
+          System.out.println("Phone Number is correct");
+      } else{
+          System.out.println("Phone Number is Incorrect");
+      }
 
 	 }
 }

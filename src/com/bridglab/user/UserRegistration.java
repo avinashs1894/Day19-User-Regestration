@@ -26,6 +26,13 @@ public class UserRegistration {
 	        Matcher match2 = patt2.matcher(lastname);
 	        return match2.matches();
 	    }
+	  public static String validateEmail(String email) {
+	        if (Pattern.matches("^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?", email)) {
+	            return "valid";
+	        } else {
+	            return "invalid";
+	        }
+	    }
 
 	 
 	 
@@ -47,5 +54,9 @@ public class UserRegistration {
       } else {
           System.out.println("Lastname is Incorrect");
       }
+      String email = "avinash.sankajji94gmail.com";
+      System.out.println("Email: " + validateEmail(email));
+      
+
 	 }
 }
